@@ -1,3 +1,15 @@
 <app-toolbar>
 </app-toolbar>
 <router-outlet></router-outlet>
+
+<div class="modal" [class.active]="loading">
+	<a href="#close" class="modal-overlay" aria-label="Close"></a>
+	
+	<div class="spinner">
+		<div class="rect1"></div>
+		<div class="rect2"></div>
+		<div class="rect3"></div>
+		<div class="rect4"></div>
+		<div class="rect5"></div>
+	  </div>
+</div>

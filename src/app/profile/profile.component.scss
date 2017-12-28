@@ -1,0 +1,12 @@
+:host {
+	flex: 1;
+}
+.empty {
+	height: 100%;
+
+	.empty-icon {
+		i {
+			font-size: 5rem;
+		}
+	}
+}

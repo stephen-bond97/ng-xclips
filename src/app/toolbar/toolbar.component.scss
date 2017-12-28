@@ -3,6 +3,8 @@
     width: 100%;
     padding-left: $padding;
     padding-right: $padding;
+    padding-top: $padding;
+    padding-bottom: $padding;
 }
 
 .home-link {
@@ -10,5 +12,5 @@
 }
 
 .home-link:hover {
-color: $primary-color;
+    color: $primary-color;
 }

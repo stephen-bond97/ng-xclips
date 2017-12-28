@@ -1,32 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 
 import { ShellComponent } from './shell/shell.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ClipsListComponent } from './clips-list/clips-list.component';
+import { ClipsListComponent } from './profile/clips-list/clips-list.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
+import { XboxAPI } from './services/xboxAPI.service';
+import { Application } from './common/application';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'clips', component: ClipsListComponent },
+  { path: 'profile/:gamertag', component: ProfileComponent },
+  {
+    path: ':gamertag',
+    redirectTo: 'profile/:gamertag',
+    pathMatch: 'full',
+  },
   {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
   }
-  //{ path: 'hero/:id', component: HeroDetailComponent },
-  /* {
-    path: 'heroes',
-    component: HeroListComponent,
-    data: { title: 'Heroes List' }
-  },
-  {
-    path: '',
-    redirectTo: '/heroes',
-    pathMatch: 'full'
-  },
-  { path: '**', component: PageNotFoundComponent } */
 ];
 
 
@@ -35,13 +33,16 @@ const appRoutes: Routes = [
     ShellComponent,
     ToolbarComponent,
     ClipsListComponent,
-    HomeComponent
+    HomeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [XboxAPI, Application],
   bootstrap: [ShellComponent]
 })
 export class AppModule { }
