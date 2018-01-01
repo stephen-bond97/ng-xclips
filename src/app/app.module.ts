@@ -11,6 +11,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { XboxAPI } from './services/xboxAPI.service';
 import { Application } from './common/application';
+import { ActivityListComponent } from './profile/activity-list/activity-list.component';
+import { ScreenshotListComponent } from './profile/screenshot-list/screenshot-list.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -34,7 +36,9 @@ const appRoutes: Routes = [
     ToolbarComponent,
     ClipsListComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    ActivityListComponent,
+    ScreenshotListComponent
   ],
   imports: [
     BrowserModule,

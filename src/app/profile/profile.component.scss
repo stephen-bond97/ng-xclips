@@ -1,5 +1,7 @@
 :host {
 	flex: 1;
+	display: flex;
+	flex-direction: column;
 }
 .empty {
 	height: 100%;
@@ -9,4 +11,8 @@
 			font-size: 5rem;
 		}
 	}
+}
+
+li.tab-item {
+	cursor: pointer;
 }

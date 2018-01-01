@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { XboxAPI } from '../../services/xboxAPI.service';
 
 @Component({
   selector: 'app-clips-list',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClipsListComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  public xuid: string;
 
-  ngOnInit() {
+  public clips: XAPI.GameClip[] = [];
+
+  public constructor(private xboxAPI: XboxAPI) { }
+
+  public ngOnInit() {
+    this.getClips();
   }
 
+  private getClips(): void {
+    let obvs = this.xboxAPI.getClips(this.xuid);
+    obvs.subscribe(
+      response => this.handleClipsSuccess(response)
+    )
+  }
+
+  private handleClipsSuccess(clips: XAPI.GameClip[]): void {
+    this.clips = clips;
+  }
 }

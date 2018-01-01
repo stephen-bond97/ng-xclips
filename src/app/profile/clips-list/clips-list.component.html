@@ -1,3 +1,8 @@
-<p>
-  clips-list works!
-</p>
+<div class="card" *ngFor="let clip of clips">
+  <div class="card-image">
+    <img src="{{clip.thumbnails[0].uri}}" class="img-responsive">
+  </div>
+  <div class="card-header">
+    <div class="card-title h5">{{clip.titleName}}</div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,5 +10,13 @@ export class ToolbarComponent {
 
   public gamertag: string = "";
 
-  public constructor() { }
+  public constructor(
+    private router: Router
+  ) { }
+
+  public keyUp(event: KeyboardEvent): void {
+    if (event.code == 'Enter') {
+      this.router.navigateByUrl(`/${this.gamertag}`);
+    }
+  }
 }
