@@ -1,8 +1,9 @@
 <header class="navbar">
-  <section class="navbar-section">
-    <span routerLink="/home" class="home-link">xClips</span>
+  <section>
+    <span routerLink="/home" class="home-link"><i class="material-icons">videogame_asset</i>xClips</span>
   </section>
-  <section class="navbar-section">
+  <span class="filler"></span>
+  <section>
     <div class="input-group">
       <input (keyup)="keyUp($event)" [(ngModel)]="gamertag" type="text" class="form-input" placeholder="Gamertag">
       <button  routerLink="/{{gamertag}}" class="btn btn-primary input-group-btn">Search</button>

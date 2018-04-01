@@ -1,4 +1,6 @@
 @import "~styles/_variables.scss";
+@import "~styles/spectre.overrides.scss";
+
 @import "node_modules/spectre.css/src/spectre";
 
 body {

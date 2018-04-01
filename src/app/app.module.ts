@@ -13,6 +13,7 @@ import { XboxAPI } from './services/xboxAPI.service';
 import { Application } from './common/application';
 import { ActivityListComponent } from './profile/activity-list/activity-list.component';
 import { ScreenshotListComponent } from './profile/screenshot-list/screenshot-list.component';
+import { PopupComponent } from './popup/popup.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -29,11 +30,11 @@ const appRoutes: Routes = [
   }
 ];
 
-
 @NgModule({
   declarations: [
     ShellComponent,
     ToolbarComponent,
+    PopupComponent,
     ClipsListComponent,
     HomeComponent,
     ProfileComponent,

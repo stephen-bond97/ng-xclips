@@ -4,11 +4,22 @@
 	overflow: auto;
 	flex-wrap: wrap;
 	justify-content: space-around;
-	padding-top: 2rem;
+	padding-top: 1em;
 
 	.card {
 		min-width: 300px;
 		max-width: 400px;
-		margin-bottom: 2rem;
+		margin-bottom: 1em;
+		position: relative;
+
+		.card-header {
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #ffffff;
+
+			bottom: 0;
+			width: 100%;
+			padding: 0.3em;
+			position: absolute;
+		}
 	}
 }

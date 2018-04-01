@@ -1,4 +1,8 @@
-<div class="card" *ngFor="let clip of clips">
+<app-popup *ngIf="selectedClip" [title]="selectedClip.titleName" (close)="closePopup()">
+  <video class="video-responsive video-responsive-4-3" preload="auto" controls autoplay src="{{ selectedClip.gameClipUris[0].uri }}"></video>
+</app-popup>
+
+<div class="card" *ngFor="let clip of clips" (click)="selectClip(clip)">
   <div class="card-image">
     <img src="{{clip.thumbnails[0].uri}}" class="img-responsive">
   </div>

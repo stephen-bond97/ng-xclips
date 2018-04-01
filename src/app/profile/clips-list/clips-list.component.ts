@@ -12,11 +12,20 @@ export class ClipsListComponent implements OnInit {
   public xuid: string;
 
   public clips: XAPI.GameClip[] = [];
+  public selectedClip: XAPI.GameClip = null;
 
   public constructor(private xboxAPI: XboxAPI) { }
 
   public ngOnInit() {
     this.getClips();
+  }
+
+  public selectClip(clip: XAPI.GameClip): void {
+    this.selectedClip = clip;
+  }
+
+  public closePopup(): void {
+    this.selectedClip = null;
   }
 
   private getClips(): void {
