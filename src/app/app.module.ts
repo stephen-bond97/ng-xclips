@@ -1,53 +1,44 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
-
 import { ShellComponent } from './shell/shell.component';
-import { ToolbarComponent } from './toolbar/toolbar.component';
-import { ClipsListComponent } from './profile/clips-list/clips-list.component';
-import { HomeComponent } from './home/home.component';
-import { ProfileComponent } from './profile/profile.component';
-import { XboxAPI } from './services/xboxAPI.service';
-import { Application } from './common/application';
-import { ActivityListComponent } from './profile/activity-list/activity-list.component';
-import { ScreenshotListComponent } from './profile/screenshot-list/screenshot-list.component';
-import { PopupComponent } from './popup/popup.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { Application } from './common/application.service';
+import { ProfilePage } from './pages/profile/profile.page';
+import { ClipsListComponent } from './components/clips-list/clips-list.component';
+import { XboxAPI } from './api/xbox.api.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'profile/:gamertag', component: ProfileComponent },
-  {
-    path: ':gamertag',
-    redirectTo: 'profile/:gamertag',
-    pathMatch: 'full',
-  },
-  {
-    path: '',
-    redirectTo: '/home',
-    pathMatch: 'full',
-  }
+  // { path: 'home', component: HomeComponent },
+  { path: 'profile/:gamertag', component: ProfilePage },
+  // {
+  //   path: ':gamertag',
+  //   redirectTo: 'profile/:gamertag',
+  //   pathMatch: 'full',
+  // },
+  // {
+  //   path: '',
+  //   redirectTo: '/home',
+  //   pathMatch: 'full',
+  // }
 ];
 
 @NgModule({
   declarations: [
     ShellComponent,
     ToolbarComponent,
-    PopupComponent,
+    ProfilePage,
     ClipsListComponent,
-    HomeComponent,
-    ProfileComponent,
-    ActivityListComponent,
-    ScreenshotListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
-  providers: [XboxAPI, Application],
+  providers: [Application, XboxAPI],
   bootstrap: [ShellComponent]
 })
 export class AppModule { }

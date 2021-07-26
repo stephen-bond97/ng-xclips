@@ -1,0 +1,24 @@
+:host {
+	flex: 1;
+	display: flex;
+	overflow: auto;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-top: 1em;
+
+	.card {
+		margin-bottom: 1em;
+		position: relative;
+        cursor: pointer;
+
+		.card-header {
+			background-color: rgba(0, 0, 0, 0.5);
+			color: #ffffff;
+
+			bottom: 0;
+			width: 100%;
+			padding: 0.3em;
+			position: absolute;
+		}
+	}
+}

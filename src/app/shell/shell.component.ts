@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Application } from '../common/application';
+import { Component } from '@angular/core';
+import { Application } from '../common/application.service';
 
 @Component({
   selector: 'app-shell',
