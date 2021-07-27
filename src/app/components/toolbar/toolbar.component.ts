@@ -15,7 +15,13 @@ export class ToolbarComponent {
   ) { }
 
   public keyUp(event: KeyboardEvent): void {
-    if (event.code == 'Enter') {
+    if (event.code == 'Enter' && this.gamertag) {
+      this.router.navigateByUrl(`/profile/${this.gamertag}`);
+    }
+  }
+
+  public handleClick(): void {
+    if (this.gamertag) {
       this.router.navigateByUrl(`/profile/${this.gamertag}`);
     }
   }
