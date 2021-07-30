@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
 import { Application } from '../common/application.service';
 
 @Component({
@@ -8,12 +9,16 @@ import { Application } from '../common/application.service';
 })
 export class ShellComponent {
 
-  public get loading(){
-    return this.app.loading;
+  public loading = false;
+  
+  public constructor(
+    private app: Application,
+  ) {
+    this.app.loadingChanged.subscribe(x => this.handleLoadingChanged(x));
   }
 
-  public constructor(
-    private app: Application
-  ) { }
+  private handleLoadingChanged(show: boolean): void {
+    this.loading = show;
+  }
 
 }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class XboxAPI {
@@ -14,6 +15,14 @@ export class XboxAPI {
 
 	public getClips(gamertag: string): Observable<XboxClipsResponse> {
 		return this.request(`clips/${gamertag}`);
+	}
+
+	public getProfile(gamertag: string): Observable<ProfileSetting[]> {
+		return this.request(`profile/${gamertag}`);
+	}
+
+	public getActivity(gamertag: string): Observable<AchievementInfo[]> {
+		return this.request(`activity/${gamertag}`).pipe(map((x: any) => x.activityItems));
 	}
 
 	private request<T>(endpoint: string): Observable<T> {

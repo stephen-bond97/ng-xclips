@@ -1,0 +1,9 @@
+<div class="card" *ngFor="let achievement of achievements">
+    <div class="card-image"><img class="img-responsive" src="{{ achievement.achievementIcon }}" alt="Achievement"></div>
+    <div class="card-header">
+      <button class="btn btn-primary float-right">{{ achievement.gamerscore }}</button>
+      <div class="card-title h5">{{ achievement.achievementName }}</div>
+      <div class="card-subtitle text-gray">{{ achievement.contentTitle }}</div>
+    </div>
+    <div class="card-body">{{ achievement.achievementDescription }}</div>
+  </div>

@@ -4,7 +4,7 @@
     </section>
     <span class="filler"></span>
     <section>
-      <div class="input-group">
+      <div class="input-group" *ngIf="showSearch">
         <input (keyup)="keyUp($event)" [(ngModel)]="gamertag" type="text" class="form-input" placeholder="Gamertag">
         <button (click)="handleClick()" class="btn btn-primary input-group-btn">Search</button>
       </div>

@@ -25,7 +25,7 @@ export class ClipsListComponent implements OnInit {
     this.route.paramMap.subscribe(paramMap => {
       let gamertag = paramMap.get('gamertag');
       if (gamertag) {
-        this.app.loading = true;
+        this.app.showLoadingBar();
         this.gamertag = gamertag;
         this.getClips();
       }
@@ -45,7 +45,7 @@ export class ClipsListComponent implements OnInit {
 
   private handleClipsSuccess(response: XboxClipsResponse): void {
     this.clips = response.gameClips;
-    this.app.loading = false;
+    this.app.hideLoadingBar();
   }
 
 }

@@ -1,0 +1,17 @@
+:host {
+	flex: 1;
+	display: flex;
+	overflow: auto;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	padding-top: 1em;
+}
+
+.card {
+    max-width: 40rem;
+    margin-bottom: 1rem;
+    
+    button {
+        pointer-events: none;
+    }
+}

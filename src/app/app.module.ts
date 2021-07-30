@@ -9,20 +9,22 @@ import { ProfilePage } from './pages/profile/profile.page';
 import { ClipsListComponent } from './components/clips-list/clips-list.component';
 import { XboxAPI } from './api/xbox.api.service';
 import { HttpClientModule } from '@angular/common/http';
+import { AchievementListComponent } from './components/achievement-list/achievement-list.component';
+import { HomePage } from './pages/home/home.page';
 
 const appRoutes: Routes = [
-  // { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomePage },
   { path: 'profile/:gamertag', component: ProfilePage },
   // {
   //   path: ':gamertag',
   //   redirectTo: 'profile/:gamertag',
   //   pathMatch: 'full',
   // },
-  // {
-  //   path: '',
-  //   redirectTo: '/home',
-  //   pathMatch: 'full',
-  // }
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+  }
 ];
 
 @NgModule({
@@ -31,6 +33,8 @@ const appRoutes: Routes = [
     ToolbarComponent,
     ProfilePage,
     ClipsListComponent,
+    AchievementListComponent,
+    HomePage,
   ],
   imports: [
     BrowserModule,

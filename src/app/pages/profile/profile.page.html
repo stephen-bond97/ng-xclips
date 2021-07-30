@@ -1,19 +1,39 @@
-<div class="empty" *ngIf="showEmpty">
-    <div class="empty-icon">
-      <i class="material-icons">videogame_asset</i>
-    </div>
-    <p class="empty-title h5">Gamertag not found</p>
-    <p class="empty-subtitle">Search again for another gamertag</p>
+<div class="profile-container" *ngIf="settings.length > 0">
+  <figure class="avatar avatar-xl profile-pic">
+    <img [src]="getProfileSetting('GameDisplayPicRaw')" />
+  </figure>
+  <div class="profile-info">
+    <h4>
+      {{getProfileSetting('Gamertag')}}
+    </h4>
+    <span>
+      {{getProfileSetting('Gamerscore')}}
+    </span>
+    <span>
+      {{getProfileSetting('AccountTier')}}
+    </span>
+    <span>
+      {{getProfileSetting('Location')}}
+    </span>
   </div>
-  
-  <ul class="tab tab-block" *ngIf="!showEmpty">
-    <li class="tab-item" [class.active]="showClips" (click)="showTab('clips')">
-      <a>Clips</a>
-    </li>
-    <!-- <li class="tab-item" [class.active]="showActivity" (click)="showTab('activity')">
-      <a>Activity</a>
-    </li> -->
-  </ul>
-  
-  <app-clips-list *ngIf="showClips">Clips</app-clips-list>
-  <!-- <app-activity-list *ngIf="showActivity && xuid" [xuid]="xuid">Activity</app-activity-list> -->
+</div>
+
+<div class="empty" *ngIf="showEmpty">
+  <div class="empty-icon">
+    <i class="material-icons">videogame_asset</i>
+  </div>
+  <p class="empty-title h5">Gamertag not found</p>
+  <p class="empty-subtitle">Search again for another gamertag</p>
+</div>
+
+<ul class="tab tab-block" *ngIf="!showEmpty">
+  <li class="tab-item" [class.active]="showClips" (click)="showTab('clips')">
+    <a>Clips</a>
+  </li>
+  <li class="tab-item" [class.active]="showActivity" (click)="showTab('activity')">
+    <a>Achievements</a>
+  </li>
+</ul>
+
+<app-clips-list *ngIf="showClips">Clips</app-clips-list>
+<app-achievement-list *ngIf="showActivity">Achievements</app-achievement-list>

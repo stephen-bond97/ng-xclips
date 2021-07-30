@@ -1,0 +1,20 @@
+.profile-container {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: flex;
+
+    .profile-pic {
+        margin-right: 1rem;
+        height: 5.2rem !important;
+        width: 5.2rem !important;
+    }
+
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+li {
+    cursor: pointer;
+}
